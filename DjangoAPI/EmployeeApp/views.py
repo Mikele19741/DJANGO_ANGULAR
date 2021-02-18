@@ -5,7 +5,7 @@ from .models import Departments, Employees
 from django.http.response import JsonResponse
 
 from .serialazer import DepartmentSerialazer, EmployeesSerialazer
-
+from django.core.files.storage import default_storage
 @csrf_exempt
 def departmentAPI(request, id=0):
     if request.method=='GET':
@@ -59,6 +59,12 @@ def employeAPI(request, id=0):
         employee.delete()
         return JsonResponse('Employee deleted', safe=False)
 
+@csrf_exempt
+def upload_File(request):
+    file=request.FILES['uploadedFile']
+    file_name=default_storage.save(file.name, file)
+
+    return JsonResponse(file_name, safe=False)
 
 
 
