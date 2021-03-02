@@ -7,6 +7,13 @@ import { DepartmentComponent } from './department/department.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { ShowDepComponent } from './department/show-dep/show-dep.component';
 import { AddEditDepComponent } from './department/add-edit-dep/add-edit-dep.component';
+import { AddEditEmpComponent } from './employees/add-edit-emp/add-edit-emp.component';
+import { ShowEmpComponent } from './employees/show-emp/show-emp.component';
+import { SharedService } from './shared.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -14,13 +21,18 @@ import { AddEditDepComponent } from './department/add-edit-dep/add-edit-dep.comp
     DepartmentComponent,
     EmployeesComponent,
     ShowDepComponent,
-    AddEditDepComponent
+    AddEditDepComponent,
+    AddEditEmpComponent,
+    ShowEmpComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
