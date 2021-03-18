@@ -13,13 +13,13 @@ export class SharedService {
   }
 
   getDeptList():Observable<any[]>{
-    return this.http.get<any[]>(this.APIUrl+"/department/");
+    return this.http.get<any[]>(this.APIUrl+"department/");
   }
   addDepartment(val:any){
-    return this.http.post(this.APIUrl+"/department/", val);
+    return this.http.post(this.APIUrl+"department/", val);
   }
   updateDepartment(val:any){
-    return this.http.put(this.APIUrl+"/department/", val);
+    return this.http.put(this.APIUrl+"department/", val);
   }
   deleteDepartment(val:any){
     return this.http.delete(this.APIUrl+"/department/"+val);

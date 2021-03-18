@@ -1,1 +1,17 @@
-<p>show-dep works!</p>
+<table class="table table-striped">
+    <thead>
+        <th>DepartmentID</th>
+        <th>DepartmentName</th>
+        <th>Options</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of DepartmentList">
+            <td>{{item.DepartmentId}}</td>
+            <td>{{item.DepartmentName}}</td>
+            <td>
+                <button type="button" class="m-1 btn btn-light btn-outline-primary">Edit</button>
+                <button type="button" class="m-1 btn btn-light btn-outline-primary">Del</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
