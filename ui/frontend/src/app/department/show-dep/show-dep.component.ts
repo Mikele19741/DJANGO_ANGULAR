@@ -8,8 +8,11 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class ShowDepComponent implements OnInit {
   DepartmentList: any=[];
+  ModalTitle: string="";
+  ActivateAddEditDepComp:boolean=false;
+  dep:any;
   constructor(private service:SharedService) { }
-
+  
   ngOnInit(): void {
     this.refreshDepList();
   }
@@ -18,5 +21,22 @@ export class ShowDepComponent implements OnInit {
     this.service.getDeptList().subscribe(data=>{
       this.DepartmentList=data;
     });
+  }
+ 
+  addClick()
+  {
+      this.dep={
+        DepartmentId:0,
+        DepartmentName:""
+
+      }
+      this.ModalTitle="Add Department";
+      this.ActivateAddEditDepComp=true;
+
+  }
+  closeClick()
+  {
+      this.ActivateAddEditDepComp=false;
+      this.refreshDepList();
   }
 }
