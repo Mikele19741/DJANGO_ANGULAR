@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 
 @Component({
   selector: 'app-add-edit-dep',
@@ -8,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class AddEditDepComponent implements OnInit {
 
   constructor() { }
-
+  @Input() dep:any
+  DepartmentId:string="";
+  DepartmentName:string="";
   ngOnInit(): void {
+    this.DepartmentId=this.dep.DepartmentId;
+    this.DepartmentName=this.dep.DepartmentName;
   }
 
 }
